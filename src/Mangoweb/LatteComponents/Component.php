@@ -36,9 +36,7 @@ class Component
 	public function render(): string
 	{
 		$fmtAttrs = $this->renderAttributes();
-		$fmtChildren = implode('', array_map(function($t) {
-			return $t->text;
-		}, $this->children));
+		$fmtChildren = implode('', $this->children); // TODO
 
 		$captureVar = '$capture' . mt_rand(100000, 1000000-1);
 		return sprintf('{capture %s}%s{/capture}{include %s%s, children=%s}',

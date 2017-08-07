@@ -14,4 +14,4 @@ EOC;
 $parser = new \Latte\Parser();
 $engine = new \Mangoweb\LatteComponents\Engine($parser);
 $engine->registerComponent(new \Mangoweb\LatteComponents\ComponentDefinition('alpha', 'componentsDir/alpha.latte'));
-\Tester\Assert::same($expected, $engine->render($template));
+assertRenders($expected, $template);

@@ -84,13 +84,30 @@ class HierarchyFactory
 			$children = $this->getUntilComponentEnd();
 			// recurse for components in child nodes
 			$walker = new TokenWalker($children);
-			$hierarchy = new static($walker, $this->componentDefinitions);
+			$hierarchyFactory = new static($walker, $this->componentDefinitions);
 
-			$output[] = new Component($definition, $attributes, $hierarchy->getHierarchy());
+			$hierarchy = $hierarchyFactory->getHierarchy();
+			$output[] = new Component($definition, $attributes, [$this->renderHierarchy($hierarchy)]);
 			$this->walker->next(); // discard the END token
 		}
 
 		return $output;
+	}
+
+
+	public function renderHierarchy(array $nodes): string
+	{
+		$parts = [];
+
+		foreach ($nodes as $node) {
+			if ($node instanceof Component) {
+				$parts[] = $node->render();
+			} elseif ($node instanceof Token) {
+				$parts[] = $node->text;
+			}
+		}
+
+		return implode('', $parts);
 	}
 
 }

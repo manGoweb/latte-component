@@ -31,24 +31,7 @@ class Engine
 		$factory = new HierarchyFactory($walker, $this->components);
 
 		$hierarchy = $factory->getHierarchy();
-
-		return $this->renderHierarchy($hierarchy);
-	}
-
-
-	public function renderHierarchy(array $nodes): string
-	{
-		$parts = [];
-
-		foreach ($nodes as $node) {
-			if ($node instanceof Component) {
-				$parts[] = $node->render();
-			} elseif ($node instanceof Token) {
-				$parts[] = $node->text;
-			}
-		}
-
-		return implode('', $parts);
+		return $factory->renderHierarchy($hierarchy);
 	}
 
 
