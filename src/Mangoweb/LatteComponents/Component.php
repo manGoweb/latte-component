@@ -39,7 +39,7 @@ class Component
 		$fmtChildren = implode('', $this->children); // TODO
 
 		$captureVar = '$capture' . mt_rand(100000, 1000000-1);
-		return sprintf('{capture %s}%s{/capture}{include %s%s, children=%s}',
+		return sprintf('{capture %s}%s{/capture}{include %s%s, children=>%s}',
 			$captureVar, $fmtChildren, $this->definition->getTemplatePath(), $fmtAttrs, $captureVar);
 	}
 
@@ -52,7 +52,7 @@ class Component
 			if ($token->type === Token::HTML_ATTRIBUTE_BEGIN) {
 				$parts[] = ', ';
 				$parts[] = $token->name;
-				$parts[] = '=';
+				$parts[] = '=>';
 			} elseif ($token->type === Token::TEXT) {
 				$parts[] = sprintf('"%s"', $token->text);
 			} elseif ($token->type === Token::MACRO_TAG) {

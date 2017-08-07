@@ -19,10 +19,10 @@ before
 	{capture $capture195845}
 		in-beta
 	{/capture}
-	{include componentsDir/beta.latte, children=$capture195845}
+	{include componentsDir/beta.latte, children=>$capture195845}
 	in-alpha after
 {/capture}
-{include componentsDir/alpha.latte, children=$capture776139}
+{include componentsDir/alpha.latte, children=>$capture776139}
 after
 EOC;
 
