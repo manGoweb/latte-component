@@ -1,0 +1,14 @@
+{
+    "require-dev": {
+        "nette/tester": "^1.7",
+        "tracy/tracy": "^2.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "Mangoweb\\LatteComponents\\": "src/"
+        }
+    },
+    "require": {
+        "latte/latte": "^2.4"
+    }
+}

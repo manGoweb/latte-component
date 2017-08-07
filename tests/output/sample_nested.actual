@@ -1,0 +1,1 @@
+before{capture $capture195845}in-alpha before<beta>in-beta</beta>in-alpha after{/capture}{include componentsDir/alpha.latte, children=$capture195845}>after

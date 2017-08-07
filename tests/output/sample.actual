@@ -1,0 +1,1 @@
+before {capture $capture195845}lorem ipsum dolor {$neco}{/capture}{include componentsDir/alpha.latte, a="b", c=$d, children=$capture195845}> after
