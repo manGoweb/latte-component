@@ -7,7 +7,7 @@ before <alpha a="b" c="{$d}">lorem ipsum dolor {$neco}</alpha> after
 EOC;
 
 $expected = /** @lang Latte */ <<<'EOC'
-before {capture $capture195845}lorem ipsum dolor {$neco}{/capture}{include componentsDir/alpha.latte, a="b", c=$d, children=$capture195845} after
+before {capture $capture195845}lorem ipsum dolor {$neco}{/capture}{include componentsDir/alpha.latte, a=>"b", c=>$d, children=>$capture195845} after
 EOC;
 
 
