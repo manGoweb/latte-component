@@ -1,4 +1,7 @@
 {
+    "name": "mangoweb/latte-components",
+    "description": "Nette latte preprocessor",
+    "license": "MIT",
     "require-dev": {
         "nette/tester": "^1.7",
         "tracy/tracy": "^2.4"
