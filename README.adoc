@@ -1,0 +1,15 @@
+Latte Components
+================
+
+Nette\Latte preprocessor.
+
+```latte
+before <alpha a="b" c="{$d}">content {$foo}</alpha> after
+```
+
+into
+
+```latte
+before {capture $capture195845}content {$foo}{/capture}
+{include componentsDir/alpha.latte, a="b", c=$d, children=$capture195845} after
+```
